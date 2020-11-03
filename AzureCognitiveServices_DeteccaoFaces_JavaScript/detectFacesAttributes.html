@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detect Faces Sample</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script type="text/javascript">
+		    function processImage() {
+		        var subscriptionKey = document.getElementById("inputKey").value;
+		        var aplicationUrl = document.getElementById("inputUrl").value;
+		        var uriBase = aplicationUrl + "/face/v1.0/detect";
+		    
+		        // Request parameters.
+				var params = {
+				    "detectionModel": "detection_01",
+				    "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+				    "returnFaceId": "true"
+				};
+						    
+		        // Display the image.
+		        var sourceImageUrl = document.getElementById("inputImage").value;
+		        document.querySelector("#sourceImage").src = sourceImageUrl;
+		    
+		        // Perform the REST API call.
+		        $.ajax({
+		            url: uriBase + "?" + $.param(params),
+		    
+		            // Request headers.
+		            beforeSend: function(xhrObj){
+		                xhrObj.setRequestHeader("Content-Type","application/json");
+		                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+		            },
+		    
+		            type: "POST",
+		    
+		            // Request body.
+		            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+		        })
+		    
+		        .done(function(data) {
+		            // Show formatted JSON on webpage.
+		            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+		        })
+		    
+		        .fail(function(jqXHR, textStatus, errorThrown) {
+		            // Display error message.
+		            var errorString = (errorThrown === "") ?
+		                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+		            errorString += (jqXHR.responseText === "") ?
+		                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+		                    jQuery.parseJSON(jqXHR.responseText).message :
+		                        jQuery.parseJSON(jqXHR.responseText).error.message;
+		            alert(errorString);
+		        });
+		    };
+		</script>
+		<style>
+			html, body {
+			    max-width: 100%;
+			    overflow-x: hidden;
+			}
+			html{
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background-color: #f4f5f6;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			#titulo_princial{
+				font-family: 'Roboto', sans-serif;
+				text-align: center;
+				font-size: 40pt;
+				width: 100%;
+				background-color: #1a1a1f;
+				padding: 30pt;
+				margin: 0;
+				color: #f4f5f6;
+			}
+			#corpo{
+				max-width: 1000px;
+  				margin: auto;
+  				font-family: 'Open Sans', sans-serif;
+  				padding-top: 10pt;
+			}
+			#entradas{
+				display: flex;
+				flex-direction: column;
+				width: 50%;
+				margin: auto;
+			}
+			.entCampo{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				margin: 5pt 0;
+			}
+			.entTexto{
+				width: 50%;
+				margin: 0;
+			}
+			.entInput{
+				width: 50%;
+				height: 25pt;
+				margin-left: 0;
+				box-sizing: border-box;
+    			border: 1px solid #4c4c51;
+   				color: #4c4c51;
+    			line-height: 1.2;
+    			font-family: 'Roboto', sans-serif;
+			}
+			#entButton{
+				background-color: #0078d4;
+    			border: 1px solid #0078d4;
+    			border-radius: 4px;
+    			color: #fff;
+    			padding: 5px 8px;
+    			max-width: 120pt;
+    			margin: auto;
+    			margin-top: 5pt;
+			}
+			textarea{
+				background-color: #f9fafa;
+			}
+		</style>
+    </head>
+    <body>
+    	<h1 id = "titulo_princial">Detecção facial</h1>
+	    	<div id = "corpo">
+			Entre com a URl de uma imagem que contenha uma(s) face(s), então clique no botão <strong>Analisar face</strong>.<br><br>
+			<div id = "entradas">
+				<div class="entCampo">
+					<p class="entTexto">URL da aplicação:</p> 
+					<input class="entInput" type="text" name="inputUrl" id="inputUrl"/>
+				</div>
+				<div class="entCampo">
+					<p class="entTexto">Chave da aplicação:</p> 
+					<input class="entInput" type="text" name="inputKey" id="inputKey"/>
+				</div>
+				<div class="entCampo">
+					<p class="entTexto">Imagem para ser analisada:</p> 
+					<input class="entInput" type="text" name="inputImage" id="inputImage"/>
+				</div>
+				<button id="entButton" onclick="processImage()">Analisar face</button><br><br>
+			</div>
+			<div id="wrapper" style="width:1020px; display:table;">
+			    <div id="jsonOutput" style="width:600px; display:table-cell;">
+			        Resposta:<br><br>
+			        <textarea id="responseTextArea" class="UIInput"
+			            style="width:580px; height:400px;"></textarea>
+			    </div>
+			    <div id="imageDiv" style="width:420px; display:table-cell;">
+			        Imagem fonte:<br><br>
+			        <img id="sourceImage" width="400" />
+			    </div>
+			</div>
+		</div>
+    </body>
+</html>
