@@ -1,0 +1,4 @@
+﻿  AcademIA_SC_Fala.cpp
+C:\Users\Arthur_2\Desktop\Arthur\AcademIA\AcademIA_SC_Fala\AcademIA_SC_Fala\AcademIA_SC_Fala.cpp(14,9): error C3861: 'synthesizeSpeech': identificador não encontrado
+C:\Users\Arthur_2\Desktop\Arthur\AcademIA\AcademIA_SC_Fala\AcademIA_SC_Fala\AcademIA_SC_Fala.cpp(28,6): error C2084: função 'void synthesizeSpeech(void)' já possui um corpo
+C:\Users\Arthur_2\Desktop\Arthur\AcademIA\AcademIA_SC_Fala\AcademIA_SC_Fala\AcademIA_SC_Fala.cpp(23): message : consulte a definição anterior de 'synthesizeSpeech'
