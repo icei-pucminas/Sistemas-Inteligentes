@@ -8,7 +8,7 @@ using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
-auto autenticacao = SpeechConfig::FromSubscription("34c14760a61243dea859b62d14225917", "brazilsouth");
+auto autenticacao = SpeechConfig::FromSubscription("<INSIRA AQUI A SUA KEY DO RECURSO>", <INSIRA AQUI A REGIÃO EM QUE O RECURSO É HOSPEDADO>"); // ex:brazilsouth
 auto requisicao_textofala = SpeechSynthesizer::FromConfig(autenticacao);
 auto audio_config = AudioConfig::FromDefaultMicrophoneInput();
 auto requisicao_falatexto = SpeechRecognizer::FromConfig(autenticacao, audio_config);
