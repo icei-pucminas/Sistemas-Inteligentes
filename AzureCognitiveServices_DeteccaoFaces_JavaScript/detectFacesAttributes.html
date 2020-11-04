@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Detect Faces Sample</title>
+        <title>Detecção Facial</title>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script type="text/javascript">
 		    function processImage() {
 		        var subscriptionKey = document.getElementById("inputKey").value;
 		        var aplicationUrl = document.getElementById("inputUrl").value;
+		        //uriBase = url da sua aplicação  + serviço selecionado
 		        var uriBase = aplicationUrl + "/face/v1.0/detect";
 		    
-		        // Request parameters.
+		        // Parametros da requisição:
+		        // idade, genero, posição da cabeça, sorriso, pelos faciais, oculos, etc.
 				var params = {
 				    "detectionModel": "detection_01",
 				    "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
 				    "returnFaceId": "true"
 				};
 						    
-		        // Display the image.
+		        // Mostra a imagem passada pelo usuario.
 		        var sourceImageUrl = document.getElementById("inputImage").value;
 		        document.querySelector("#sourceImage").src = sourceImageUrl;
 		    
-		        // Perform the REST API call.
+		        // Faz a chamada da API.
 		        $.ajax({
+		        	//Cria a url para qual a chamada sera feita a partir da uriBase e dos parametros
 		            url: uriBase + "?" + $.param(params),
 		    
-		            // Request headers.
+		            /// Corpo da requisição (contem o link da imagem disponibilizada).
 		            beforeSend: function(xhrObj){
 		                xhrObj.setRequestHeader("Content-Type","application/json");
 		                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
@@ -33,17 +36,16 @@
 		    
 		            type: "POST",
 		    
-		            // Request body.
+		            // Corpo da requisição (contem o link da imagem disponibilizada).
 		            data: '{"url": ' + '"' + sourceImageUrl + '"}',
 		        })
-		    
+		    	//Caso tudo ocorra corretamente formata o JSON e o mostra na tela.
 		        .done(function(data) {
-		            // Show formatted JSON on webpage.
+		            
 		            $("#responseTextArea").val(JSON.stringify(data, null, 2));
 		        })
-		    
+		    	//Caso aconteça algum problema o erro printa na tela.
 		        .fail(function(jqXHR, textStatus, errorThrown) {
-		            // Display error message.
 		            var errorString = (errorThrown === "") ?
 		                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
 		            errorString += (jqXHR.responseText === "") ?
@@ -54,6 +56,7 @@
 		        });
 		    };
 		</script>
+		<!-- Estilização da pagina -->
 		<style>
 			html, body {
 			    max-width: 100%;
@@ -127,6 +130,7 @@
 			}
 		</style>
     </head>
+    <!-- Estilização corpo da pagina -->
     <body>
     	<h1 id = "titulo_princial">Detecção facial</h1>
 	    	<div id = "corpo">
