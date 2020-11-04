@@ -3,5 +3,5 @@ Este projeto ilustra o funcionamento da API de serviços inteligentes da Microso
 
 Autor: Arthur Bernardo Moura, aluno da PUC Minas, Embaixador do programa AcademIA Microsoft e Monitor dos cursos de Computação.
 Orientação: Prof. Sandro Jerônimo de Almeida
-# Vídeo demonstrativo
+# Vídeo explicativo
 https://www.youtube.com/watch?v=v0sEQvWLRTs
