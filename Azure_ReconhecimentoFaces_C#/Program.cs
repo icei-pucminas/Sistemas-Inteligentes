@@ -11,9 +11,6 @@ namespace ConsoleApp1
 {
     class Program
     {
-        // From your Face subscription in the Azure portal, get your subscription key and endpoint.
-        const string SUBSCRIPTION_KEY = "Ponha aqui sua chave";
-        const string ENDPOINT = "Ponha aqui o seu end point";
         // Recognition model 3 was released in 2020 May
         const string RECOGNITION_MODEL3 = RecognitionModel.Recognition03;
         public static IFaceClient Authenticate(string endpoint, string key)
@@ -69,13 +66,20 @@ namespace ConsoleApp1
             foreach (var similarResult in similarResults)
             {
                 Console.WriteLine($"A imagem {i} com o FaceID:{similarResult.FaceId} é similar a imagem base com a confiança: {similarResult.Confidence}.");
+                i++;
             }
             Console.WriteLine();
         }
         static void Main(string[] args)
         {
+            // From your Face subscription in the Azure portal, get your subscription key and endpoint.
+            Console.WriteLine("Insira a URL da sua aplicação no Azure:\n");
+            string urlServico = Console.ReadLine();
+            Console.WriteLine("Insira a chave da sua aplicação no Azure:\n");
+            string chaveServico = Console.ReadLine();
+            
             // Authenticate.
-            IFaceClient client = Authenticate(ENDPOINT, SUBSCRIPTION_KEY);
+            IFaceClient client = Authenticate(urlServico, chaveServico);
             FindSimilar(client, RECOGNITION_MODEL3).Wait();
         }
     }
