@@ -12,8 +12,8 @@ namespace ConsoleApp1
     class Program
     {
         // From your Face subscription in the Azure portal, get your subscription key and endpoint.
-        const string SUBSCRIPTION_KEY = "37f12cddf29743dcac91a6cdb561106b";
-        const string ENDPOINT = "https://pucminas.cognitiveservices.azure.com/";
+        const string SUBSCRIPTION_KEY = "Ponha aqui sua chave";
+        const string ENDPOINT = "Ponha aqui o seu end point";
         // Recognition model 3 was released in 2020 May
         const string RECOGNITION_MODEL3 = RecognitionModel.Recognition03;
         public static IFaceClient Authenticate(string endpoint, string key)
