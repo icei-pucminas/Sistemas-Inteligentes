@@ -1,5 +1,5 @@
 # Descrição
-Este projeto ilustra o funcionamento da API de serviços inteligentes da Microsoft para o reconhecimento de formulários customizados. Foi desenvolvido utilizando Node.js, Java Script e HTML (back-end e front-end). Utilizado na disciplina de TI2 para extração de inforões de um currículo e o autopreenchimento dos campos do formulário de cadstro.
+Este projeto ilustra o funcionamento da API de serviços inteligentes da Microsoft para o reconhecimento de formulários customizados. Foi desenvolvido utilizando Node.js, Java Script e HTML (back-end e front-end). Utilizado na disciplina de TI2 para extração de informações de um currículo e o autopreenchimento dos campos do formulário de cadastro.
 
 Autor: Luana Campos Takeishi, aluna da PUC Minas, Ciência da Computação.
 
@@ -14,8 +14,6 @@ Vídeo explicativo:
 Rápido overview: https://youtu.be/6S6mmfkluNo 
 
 Veja também como conseguir a chave e a URL da sua aplicação azure: https://youtu.be/nw0GMx687Ew
-
-
 
 Vídeo base para a API: https://www.youtube.com/watch?v=nKEjvAkNWUQ
 
