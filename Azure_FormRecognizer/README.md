@@ -16,6 +16,7 @@ Rápido overview: https://youtu.be/6S6mmfkluNo
 Veja também como conseguir a chave e a URL da sua aplicação azure: https://youtu.be/nw0GMx687Ew
 
 
+
 Vídeo base para a API: https://www.youtube.com/watch?v=nKEjvAkNWUQ
 
 Documentação API: https://azure.microsoft.com/pt-br/services/form-recognizer/#overview |
