@@ -9,7 +9,7 @@ Orientação: Prof. Sandro Jerônimo de Almeida
 
 
 # Vídeos
-Vídeo explicativo: 
+Vídeo explicativo: https://youtu.be/xM-ziwkM8gU
 
 Rápido overview: https://youtu.be/6S6mmfkluNo 
 
