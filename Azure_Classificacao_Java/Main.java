@@ -22,14 +22,14 @@ Funciona em 4 passos principais:
 1) Constrói o objeto da chamada HTTP a ser enviado ao serviço web do modelo
 2) Coloca como o `body` da chamada HTTP as características de áudio que são classificados
 3) Envia a requisição ao serviço
-4) Recebe a resposta em JSON e a converte para um HashMap
+4) Recebe a resposta em JSON e a converte para uma List de HashMaps
 */
 
 public class Main {
     // Endpoint do modelo
     private static final String MODEL_URL = "";
     
-    // Chave de API do seu serviço na Azure. Para mais informações assitir o seguinte
+    // Chave de API do seu serviço na Azure. Para mais informações assistir o seguinte
     // vídeo no tempo já marcado: https://youtu.be/jTUvOlWBuVw?t=188
     private static final String API_KEY = "";
 
@@ -49,7 +49,7 @@ public class Main {
             // autenticação com a API_KEY e os dados a serem classificados.
             HttpResponse<String> response  = client.send(request, HttpResponse.BodyHandlers.ofString());
             
-            // Convertemos a reposta para uma List de objetos de HashMap. Na linha x há um exemplo de retorno
+            // Convertemos a reposta para uma List de objetos de HashMap. Nas linhas 86-111 há um exemplo de retorno
             // da função `#responseMapBody`.
             List<Map<String, Object>> classification = responseMapBody(response.body());
             System.out.println(classification);
