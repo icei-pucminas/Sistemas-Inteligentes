@@ -26,17 +26,20 @@ Funciona em 4 passos principais:
 */
 
 public class Main {
-    // Endpoint do modelo
+    // Endpoint do modelo. Para mais informações, ver o seguinte
+    // vídeo no tempo já marcado: https://youtu.be/jTUvOlWBuVw?t=188.
+    // O endpoint está presente no campo "REST Endpoint" no serviço web do modelo.
     private static final String MODEL_URL = "";
     
     // Chave de API do seu serviço na Azure. Para mais informações assistir o seguinte
     // vídeo no tempo já marcado: https://youtu.be/jTUvOlWBuVw?t=188
+    // A chave está presente no campo "Primary Key" no serviço web do modelo.
     private static final String API_KEY = "";
 
     public static void main(String[] Args) throws Exception {
         // Construímos a nosso objeto HTTP que será enviado ao servidor do modelo. 
         // O `API_KEY` é utilizado nos headers e os dados enviados são atribuídos ao objeto
-        // na linha 43 por meio da função `#sampleData`
+        // na linha 43 por meio da função `.sampleData`
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(MODEL_URL))
                 .headers("Content-Type", "application/json", "Authorization", "Bearer " + API_KEY)
@@ -50,7 +53,7 @@ public class Main {
             HttpResponse<String> response  = client.send(request, HttpResponse.BodyHandlers.ofString());
             
             // Convertemos a reposta para uma List de objetos de HashMap. Nas linhas 86-111 há um exemplo de retorno
-            // da função `#responseMapBody`.
+            // da função `.responseMapBody`.
             List<Map<String, Object>> classification = responseMapBody(response.body());
             System.out.println(classification);
         } catch (IOException | InterruptedException e) {
