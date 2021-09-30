@@ -22,7 +22,9 @@ Funciona em 4 passos principais:
 1) Constrói o objeto da chamada HTTP a ser enviado ao serviço web do modelo
 2) Coloca como o `body` da chamada HTTP as características de áudio que são classificados
 3) Envia a requisição ao serviço
-4) Recebe a resposta em JSON e a converte para uma List de HashMaps
+4) Recebe a resposta em JSON e a converte para uma List de HashMaps. O retorno do modelo
+   contém as características de cada áudio enviadas, a probabilidade de cada set de características
+   pertencer a uma classe e a classe prevista.
 */
 
 public class Main {
@@ -113,6 +115,12 @@ public class Main {
       ...
     ]
     
+    Cada HashMap contém as características de áudio que foram enviadas para a classificação (liveness,
+    tempo, valence, instrumentalness, danceability, speechiness, acousticness, energy), a probabilidade
+    delas pertencerem a cada uma das classes (Scored Probabilities_feliz, Scored Probabilities_dormir,
+    Scored Probabilities_correr, Scored Probabilities_gaming, Scored Probabilities_energetico,
+    Scored Probabilities_triste, Scored Probabilities_calmo) e, por fim, a classe prevista (Scored Labels),
+    que nada mais é a classe com a maior probabilidade das características pertencerem
     */
     private static List<Map<String, Object>> responseMapBody(String body) {
         Map<String, Object> hm;
