@@ -52,29 +52,35 @@ Seguir o [tutorial da própria Microsoft](https://docs.microsoft.com/pt-br/azure
 
 ### 2. Importar um dataset
 
-[Vídeo](https://www.youtube.com/watch?v=8RP4Gp5VZAM&list=PLPt6M2I9hYXG3wtjEO01Mw7ksqQzUrSfB&index=1)
+[Vídeo](https://youtu.be/8RP4Gp5VZAM)
  
 ### 3. Criar um pipeline e treinar um modelo 
 
-[Vídeo](https://www.youtube.com/watch?v=8RP4Gp5VZAM&list=PLPt6M2I9hYXG3wtjEO01Mw7ksqQzUrSfB&index=2)
+[Vídeo](https://youtu.be/iZs0rBS2gFk)
 
 ### 4. Publicar o modelo em um serviço web
 
-[Vídeo](https://www.youtube.com/watch?v=8RP4Gp5VZAM&list=PLPt6M2I9hYXG3wtjEO01Mw7ksqQzUrSfB&index=3)
+[Vídeo](https://youtu.be/gluOhQOVV3E)
 
 ### 5. Baixar os arquivos para o serviço web
 
-[Vídeo](https://www.youtube.com/watch?v=8RP4Gp5VZAM&list=PLPt6M2I9hYXG3wtjEO01Mw7ksqQzUrSfB&index=4)
+O arquivos no vídeo podem ser acessados em [`score.py`](https://github.com/danielSbastos/vibe-fi/blob/master/scripts/score2.py)
+e [`conda_env.yaml`](https://github.com/danielSbastos/vibe-fi/blob/master/scripts/conda_env2.yaml) 
+
+[Vídeo](https://youtu.be/8JgRNa9Golw)
 
 ### 6. Testar o modelo
 
-[Vídeo](https://www.youtube.com/watch?v=8RP4Gp5VZAM&list=PLPt6M2I9hYXG3wtjEO01Mw7ksqQzUrSfB&index=5)
+[Vídeo](https://youtu.be/jTUvOlWBuVw)
 
 ### 7. Programando em Java para realizar as chamadas
 
+Obs: se você utilizar algum IDE que já baixe o `.jar`, configure o CLASSPATH, compile e rode programas em Java, como o Eclipse,
+pode ignorar todos os passos abaixo, menos o de configurar as constantes.
+
 - Você deve baixar antes o `.jar` do pacote `org.json.simple` e o deixar nessa pasta. Link para download: [http://www.java2s.com/Code/Jar/j/Downloadjsonsimple11jar.htm](http://www.java2s.com/Code/Jar/j/Downloadjsonsimple11jar.htm)
 - Altere as constantes `MODEL_URL` e `API_KEY` em `Main.java` com os valores do seu serviço
-- Executar o código `Main.java` com o seguinte comando:
+- Executar o código [`Main.java`](https://github.com/icei-pucminas/Sistemas-Inteligentes/blob/main/Azure_Classificacao_Java/Main.java) com o seguinte comando:
 
 `javac -cp json-simple-1.1.jar Main.java && java -cp .:json-simple-1.1.jar Main`
 
