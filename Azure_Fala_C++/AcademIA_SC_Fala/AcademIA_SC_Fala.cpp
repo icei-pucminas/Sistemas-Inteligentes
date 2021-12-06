@@ -28,15 +28,6 @@ string fala_em_texto() {
 
 int main()
 {
-    cout << "AZURE - SERVICO COGNITIVO DE FALA\n";
-    string key = "", region = "";
-    cout << "Informe a key do recurso: ";
-    cin >> key;                 // ENTRADA DA CHAVE DO RECURSO
-    cout << "Informe a regiao em que o recurso e hospedado: ";
-    cin >> region;              // ENTRADA DA REGIÃO EM QUE O RECURSO FOI HOSPEDADO
-    cout << "--------------------------------------------------------------\n";
-
-    autenticacao = SpeechConfig::FromSubscription(key, region);         //  AUTENTICAÇÃO DO RECURSO COM A CHAVE E REGIÃO INFORMADOS PELO USUÁRIO 
     autenticacao->SetSpeechRecognitionLanguage("pt-BR");                //  CONFIGURAÇÃO DA AUTENTICAÇÃO PARA O RECONHECIMENTO DE FALA EM PORTUGUÊS 
     autenticacao->SetSpeechSynthesisLanguage("pt-BR");                  //  CONFIGURAÇÃO DA AUTENTICAÇÃO PARA A SINTETIZAÇÃO DE FALA EM PORTUGUÊS 
     autenticacao->SetSpeechSynthesisVoiceName("pt-BR-FranciscaNeural"); //pt-BR-AntonioNeural  |CONFIGURAÇÃO DE UMA VOZ ESPECÍFICA
